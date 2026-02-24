@@ -1,4 +1,4 @@
-# Ticket Management System API
+# Support Ticket Management API
 
 A Node.js Express backend for a Ticket Management System, using MongoDB and JWT for authentication.
 
