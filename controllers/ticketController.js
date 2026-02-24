@@ -84,3 +84,14 @@ export const updateStatus = async (req, res) => {
 
   res.status(200).json(ticket);
 };
+
+export const deleteTicket = async (req, res) => {
+  const ticket = await Ticket.findById(req.params.id);
+
+  if (!ticket) {
+    return res.status(404).json({ message: "Ticket not found" });
+  }
+
+  await ticket.deleteOne();
+  res.status(204).end();
+};

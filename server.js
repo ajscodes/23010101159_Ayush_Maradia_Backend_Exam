@@ -18,5 +18,5 @@ console.log("------Mongo connection string: ", process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on: ${PORT}`);
+  console.log(`------Server running on: http://localhost:${PORT}`);
 });

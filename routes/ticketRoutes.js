@@ -1,8 +1,13 @@
 import express from "express";
-import { createTicket, getTicket } from "../controllers/ticketController.js";
+import {
+  createTicket,
+  getTicket,
+  assignTicket,
+  updateStatus,
+  deleteTicket,
+} from "../controllers/ticketController.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 import roleMiddleware from "../middleware/roleMiddleware.js";
-import { assignTicket, updateStatus } from "../controllers/ticketController.js";
 
 const router = express.Router();
 
@@ -13,5 +18,7 @@ router.get("/", getTicket);
 
 router.patch("/:id/assign", roleMiddleware("MANAGER", "SUPPORT"), assignTicket);
 router.patch("/:id/status", roleMiddleware("MANAGER", "SUPPORT"), updateStatus);
+
+router.delete("/:id", roleMiddleware("MANAGER"), deleteTicket);
 
 export default router;
